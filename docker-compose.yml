@@ -1,0 +1,16 @@
+version: "3"
+services:
+  jupyter:
+    image: jupyter/datascience-notebook:latest
+    working_dir: /work
+    volumes:
+      - $PWD:/work
+    ports:
+      - 8888:8888
+    tty: true
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - "$PWD/db:/data/db"
